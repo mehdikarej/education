@@ -1,0 +1,26 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">AddCourse</h6>
+    <div class="contact-form">
+        <form #formCourse="ngForm" (ngSubmit)="addCourse()">
+            <div class="row">
+                <div class="col-6 form-group">
+                     <input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Name" [(ngModel)]="course.name" >
+                </div>
+                 <div class="col-6 form-group">
+                     <input type="text" name="desc" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Description" [(ngModel)]="course.description" >
+                </div>
+                 <div class="col-6 form-group">
+                     <input type="text" name="timming" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Timming" [(ngModel)]="course.timming" >
+                </div>
+            </div>
+             <div>
+                <button class="btn btn-primary py-3 px-5" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+

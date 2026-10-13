@@ -1,0 +1,23 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">ClasseInfo</h6>
+    <div><span class="text-info">ID:</span>
+        &nbsp;{{foundClasse.id}}</div>
+    <div><span class="text-info">CLASSENAME:</span>&nbsp;{{foundClasse.name}}</div>
+    <hr>
+    <div *ngFor="let std of foundClasse.students">
+        <div><span class="text-info">STUDENTFNAME:</span>&nbsp;{{std.firstName}}</div>
+        <div><span class="text-info">STUDENTLNAME:</span>&nbsp;{{std.lastName}}</div>
+        <hr>
+    </div>
+    <div *ngIf="foundClasse.teacher">
+        <div><span class="text-info">TEACHERFNAME:</span>&nbsp;{{foundClasse.teacher.firstName}}</div>
+        <div><span class="text-info">TEACHERLNAME:</span>&nbsp;{{foundClasse.teacher.lastName}}</div>
+    </div>
+
+    <div *ngFor="let course of foundClasse.courses">
+        <div><span class="text-info">COURSEDESCRIPTION:</span>&nbsp;{{course.description}}</div>
+        <div><span class="text-info">COURSETIMMING:</span>&nbsp;{{course.timming}}</div>
+    </div>
+
+</div>

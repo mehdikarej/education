@@ -1,0 +1,61 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">AddClasse</h6>
+    <div class="contact-form">
+        <form #formCourse="ngForm" (ngSubmit)="addClasse()">
+            <p class="text-secondary text-left mb-4">Name:</p>
+            <div class="row">
+
+                <div class="col-6 form-group">
+                    <input class="form-control" type="text" name="name"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Name" ngModel
+                        required #name="ngModel" [(ngModel)]="classObj.name">
+                    <div class="text-danger" *ngIf="name.invalid &&name.touched">Name is required</div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>PhoneNumber</th>
+                            <th>Select</th>
+                        </tr>
+
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let m of studTab">
+                            <td>{{m.id}}</td>
+                            <td>{{m.firstName}}</td>
+                            <td>{{m.lastName}}</td>
+                            <td>{{m.email}}</td>
+                            <td>{{m.phoneNumber}}</td>
+                            <td><input type="checkbox" (change)="selectInput(m.id,$event)" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <label class="text-left">Teacher:</label>
+                    <select name="teachId" class="form-control" [(ngModel)]="classObj.teacherId">
+                        <option value=" ">Select Teacher</option>
+                        <option [value]="elt.id" *ngFor="let elt of usersTab">{{elt.firstName}}</option>
+                    </select>
+                </div>
+                <div class="course">
+                    <label class="text-left">Course:</label>
+                    <div> <select name="courId" class="form-control" [(ngModel)]="classObj.courseId">
+                            <option value=" ">Select Course</option>
+                            <option [value]="elt.id" *ngFor="let elt of coursesTab">{{elt.description}}</option>
+                        </select>
+                    </div>
+                
+                <div class="mt-5">
+
+                    <button class="btn btn-primary py-3 px-5" type="submit">Add</button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

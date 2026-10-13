@@ -1,0 +1,44 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">EditUser</h6>
+    <div class="contact-form">
+        <form #editForm="ngForm" (ngSubmit)="editUser()">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <input type="text" name="firstName"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="FirstName"
+                        [(ngModel)]="user.firstName">
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" name="lastName"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="LastName"
+                        [(ngModel)]="user.lastName">
+                </div>
+                <div class="col-6 form-group">
+                    <input type="email" name="email" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Email" [(ngModel)]="user.email">
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" name="phoneNumber"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="PhoneNumber"
+                        [(ngModel)]="user.phoneNumber">
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" name="address" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Address" [(ngModel)]="user.address">
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text"  *ngIf="isTeacher(user)" name="specialty"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Specialty"
+                        [(ngModel)]="user.specialty"  >
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" *ngIf="isTeacher(user)"  name="experience"
+                        class="form-control border-top-0 border-right-0 border-left-0 p-0" placeholder="Experience"
+                        [(ngModel)]="user.experience" >
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary py-3 px-5" type="submit">Edit</button>
+            </div>
+        </form>

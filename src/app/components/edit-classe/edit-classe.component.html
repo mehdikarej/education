@@ -1,0 +1,56 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">EditClasse</h6>
+    <div class="contact-form">
+        <form #formClasse="ngForm" (ngSubmit)="editClasse()">
+            <div class="row">
+                  <div class="px-5">
+                    <label>Name:</label>
+                     <input type="text" name="name" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Name" [(ngModel)]="classe.name" >
+                </div>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>Select</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let s of studTab">
+                            <td>{{s.id}}</td>
+                            <td>{{s.firstName}}</td>
+                            <td>{{s.lastName}}</td>
+                            <td>{{s.email}}</td>
+                            <td>
+                                <input type="checkbox" [checked]="isStudentSelected(s.id)"
+                                    (change)="selectInput(s.id,$event)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="px-5">
+                    <label>Teacher:</label>
+                    <select class="form-control" name="teacherId" [(ngModel)]="classe.teacherId">
+                        <option [value]="elt.id" *ngFor="let elt of usersTab">
+                            {{elt.firstName}}
+                        </option>
+                    </select>
+                </div>
+                <div class=" cour">
+                    <label>Course:</label>
+                    <select class="form-control" name="courseId" [(ngModel)]="classe.courseId">
+                        <option [value]="elt.id" *ngFor="let elt of coursesTab">
+                            {{elt.description}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary py-3 px-5" type="submit">Edit</button>
+            </div>
+        </form>
+    </div>

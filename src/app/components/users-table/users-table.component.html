@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+   <th>Id</th>
+   <th>FirstName</th>
+   <th>LastName</th>
+   <th>Email</th>
+   <th>PhoneNumber</th>
+   <th>Address</th>
+   <th>Specialty</th>
+   <th>Experience</th>
+   <th>Stauts</th>
+   <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of  usersTab ">
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.specialty}}</td>
+            <td>{{user.experience}}</td>
+            <td>{{user.status}}</td>
+            <td>
+                <button class="btn btn-success" *ngIf="isTeacher(user)" (click)="activateStatus(user)">Activate</button>
+                <button class="btn btn-info" (click)="displayUser(user.id)">Display</button>
+                <button class="btn btn-warning" (click)="editUser(user.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+ 
+</table>

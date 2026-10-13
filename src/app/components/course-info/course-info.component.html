@@ -1,0 +1,14 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">CourseInfo</h6>
+    <div>{{foundCourse.name}}</div>
+    <div>{{foundCourse.description}}</div>
+    <div>{{foundCourse.timming}}</div>
+    <div *ngIf="foundCourse.teacher">
+    <div>{{foundCourse.teacher.firstName}}</div>
+    <div>{{foundCourse.teacher.lastName}}</div>
+    </div>
+   
+    
+</div>
+

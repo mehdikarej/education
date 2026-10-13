@@ -1,0 +1,40 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Courses</h6>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>CLASSENAME</th>
+            <th>STUDENTFNAME</th>
+            <th>STUDENTLNAME</th>
+            <th>COURSESNAME</th>
+            <th>COURSESTIMMING</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cl of classes">
+                <td>{{cl.classeId}}</td>
+                <td>{{cl.name}}</td>
+                <td>
+                    <div *ngFor="let us of cl.users">
+                        {{us.firstName}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let us of cl.users">
+                        {{us.lastName}}
+                    </div>
+                </td>
+
+                <td>
+                    <div *ngFor="let cour of cl.courses">{{cour.description}}
+                    </div>
+                </td>
+                <td>
+                    <div *ngFor="let cour of cl.courses">{{cour.timming}}
+                    </div>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

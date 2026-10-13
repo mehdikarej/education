@@ -1,0 +1,35 @@
+<app-about-start></app-about-start>
+<div class="col-md-6 mb-5">
+    <h3 class="text-black mb-4">StudentEvaluation</h3>
+    <div class="w-100">
+        <div class="input-group">
+            <input type="text" class="form-control border-light" style="padding: 30px;"
+                placeholder="Enter PhoneNumberChildren" [(ngModel)]="phoneNumberChild">
+            <div class="input-group-append">
+                <button class="btn btn-primary px-4" (click)="getEvaluation()">Search</button>
+                <table class="table">
+                    <thead>
+                        <th>STUDENTFNAME</th>
+                        <th>STUDENTLNAME</th>
+                        <th>COURSESNAME</th>
+                        <th>NOTE</th>
+                        <th>REMARK</th>
+                    </thead>
+                    <tbody>
+                        <ng-container>
+                        <tr  *ngFor="let eval of evaluation" >
+                        <td>{{eval.user?.firstName}}</td>
+                        <td>{{eval.user?.lastName}}</td>
+                        <td>{{eval.course?.name}}</td>
+                        <td>{{eval.note}}</td>
+                        <td>{{eval.remark}}</td>
+                        </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                    
+            </div>
+        </div>
+    </div>
+    <div *ngIf="MsgError"  class="d-flex justify-content-center align-items-center"><h2 class="text-danger">{{MsgError}}</h2></div>
+</div>

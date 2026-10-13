@@ -1,0 +1,76 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">CoursesNotes</h6>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>CLASSENAME</th>
+            <th>STUDENTFNAME</th>
+            <th>STUDENTLNAME</th>
+            <th>COURSESNAME</th>
+            <th>NOTE</th>
+            <th>REMARK</th>
+            <th>ACTION</th>
+        </thead>
+       <tbody>
+  <ng-container *ngFor="let std of classes">
+    <tr *ngFor="let us of std.users">
+        <td>{{ std.classeId }}</td>
+        <td>{{ std.name }}</td>
+        <td>{{ us.firstName }}</td>
+        <td>{{ us.lastName }}</td>
+
+        <td>
+          <div *ngFor="let cour of std.courses">
+            {{ cour.description }}
+          </div>
+        </td>
+
+        <td>
+          <input
+            class="form-control"
+            type="number"
+            name="note{{us.id}}"
+            placeholder="Note"
+            required
+            #note="ngModel"
+            [(ngModel)]="student[us.id].note">
+
+          <div class="text-danger"
+               *ngIf="note.invalid && note.touched">
+            Note is required
+          </div>
+        </td>
+
+        <td>
+          <input
+            class="form-control"
+            type="text"
+            name="remark{{us.id}}"
+            placeholder="Remark"
+            required
+            #remark="ngModel"
+            [(ngModel)]="student[us.id].remark">
+
+          <div class="text-danger"
+               *ngIf="remark.invalid && remark.touched">
+            Remark is required
+          </div>
+        </td>
+
+        <td>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            (click)="addEvaluation(us.id)">
+            Add
+          </button>
+        </td>
+
+    
+
+    </tr>
+  </ng-container>
+</tbody>
+    </table>
+</div>

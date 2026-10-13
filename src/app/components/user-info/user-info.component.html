@@ -1,0 +1,27 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">UserInfo</h6>
+    <div>
+        <h4>{{foundUser.firstName}}</h4>
+    </div>
+    <div>
+        <h4>{{foundUser.lastName}}</h4>
+    </div>
+    <div>
+        <h4>{{foundUser.email}}</h4>
+    </div>
+    <div>
+        <h4>{{foundUser.phoneNumber}}</h4>
+    </div>
+    <div>
+        <h4>{{foundUser.address}}</h4>
+    </div>
+    <div *ngIf="isTeacher(foundUser)">
+        <h4>{{foundUser.specialty}}</h4>
+    </div>
+    <div *ngIf="isTeacher(foundUser)">
+        <h4>{{foundUser.experience}}</h4>
+    </div>
+
+</div>
+

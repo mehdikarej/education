@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Timming</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let course of coursesTab">
+        <td>{{course.id}}</td>
+        <td>{{course.name}}</td>
+        <td>{{course.description}}</td>
+        <td>{{course.timming}}</td>
+        <td>{{course.firstName}}</td>
+        <td>{{course.lastName}}</td>
+        <td>
+            <button class="btn btn-info" (click)="displayCourse(course.id)">Display</button>
+            <button class="btn btn-warning"(click)="editCourse(course.id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</button>
+        </td>
+        </tr>
+    </tbody>
+</table>

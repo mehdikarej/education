@@ -1,0 +1,21 @@
+<app-about-start></app-about-start>
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Timming</th>
+        <th>TeacherFName</th>
+        <th>TeacherLName</th>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let cours of courses">
+            <td>{{cours.id}}</td>
+            <td>{{cours.name}}</td>
+            <td>{{cours.description}}</td>
+            <td>{{cours.timming}}</td>
+           <td>{{cours.teacher.firstName}}</td>
+           <td>{{cours.teacher.lastName}}</td>
+        </tr>
+    </tbody>
+</table>

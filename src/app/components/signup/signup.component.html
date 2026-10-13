@@ -1,0 +1,129 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Sign Up</h6>
+    <div class="contact-form">
+        <form [formGroup]="this.signupForm">
+            <div class="row">
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="FirstName" formControlName="firstName">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['firstName'].invalid&&(signupForm.controls['firstName'].dirty||signupForm.controls['firstName'].touched)">
+                        <div *ngIf="signupForm.controls['firstName'].errors?.['required']">FirstName is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['firstName'].errors?.['minlength']">FirstName
+                        should be at least 3
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="LastName" formControlName="lastName">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['lastName'].invalid&&(signupForm.controls['lastName'].dirty||signupForm.controls['lastName'].touched)">
+                        <div *ngIf="signupForm.controls['lastName'].errors?.['required']"> LastName is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['lastName'].errors?.['minlength']">LastName
+                        should be at least 4
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="email" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Email" formControlName="email">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['email'].invalid&&(signupForm.controls['email'].dirty||signupForm.controls['email'].touched)">
+                        <div *ngIf="signupForm.controls['email'].errors?.['required']"> Email is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['email'].errors?.['pattern']">Email format
+                        invalid</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="PhoneNumber" formControlName="phoneNumber">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['phoneNumber'].invalid&&(signupForm.controls['phoneNumber'].dirty||signupForm.controls['phoneNumber'].touched)">
+                        <div class="text-danger" *ngIf="signupForm.controls['phoneNumber'].errors?.['required']"> PhoneNumber is Required
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['phoneNumber'].errors?.['pattern']">PhoneNumber format invalid</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="password" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Password" formControlName="password">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['password'].invalid&&(signupForm.controls['password'].dirty||signupForm.controls['password'].touched)">
+                        <div *ngIf="signupForm.controls['password'].errors?.['required']">Password is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['password'].errors?.['minlength']">Password is short
+                        should be at least 8
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Address" formControlName="address">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['address'].invalid&&(signupForm.controls['address'].dirty||signupForm.controls['address'].touched)">
+                        <div *ngIf="signupForm.controls['address'].errors?.['required']">Address is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['address'].errors?.['minlength']">Address should
+                        be at least 4
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Specialty" formControlName="specialty" *ngIf="this.path=='/signupTeacher'">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['specialty'].invalid&&(signupForm.controls['specialty'].dirty||signupForm.controls['specialty'].touched)">
+                        <div *ngIf="signupForm.controls['specialty'].errors?.['required']">Specialty is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['specialty'].errors?.['minlength']">Specialty
+                        should be at least 4
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="Experience" formControlName="experience" *ngIf="this.path=='/signupTeacher'">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['experience'].invalid&&(signupForm.controls['experience'].dirty||signupForm.controls['experience'].touched)">
+                        <div *ngIf="signupForm.controls['experience'].errors?.['required']">Experience is Required</div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['experience'].errors?.['minlength']">Experience
+                        should be at least 4
+                        charac</div>
+                </div>
+                <div class="col-6 form-group">
+                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0 p-0"
+                        placeholder="PhoneNumberChild" formControlName="phoneNumberChild"
+                        *ngIf="this.path=='/signupParent'">
+                    <div class="text-danger"
+                        *ngIf="signupForm.controls['phoneNumberChild'].invalid&&(signupForm.controls['phoneNumberChild'].dirty||signupForm.controls['phoneNumberChild'].touched)">
+                        <div *ngIf="signupForm.controls['phoneNumber'].errors?.['required']">PhoneNumber is Required
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="signupForm.controls['phoneNumberChild'].errors?.['pattern']">
+                        PhoneNumber format invalid
+                    </div>
+                    <div class="text-danger" *ngIf="!existsPhoneNumber(signupForm.get('phoneNumberChild')?.value)">PhoneNumber inExist</div>
+                </div>
+                <div style="display:none">
+                    <input type="file" class="form-control" #filePicker (change)="onFileSelected($event)">
+                </div>
+
+                <div class="col-6 form-group">
+                    <button type="button" class="btn-warning" (click)="filePicker.click()" *ngIf="this.path=='/signup'">
+                        Choose Your Photo
+                    </button>
+                </div>
+
+                <div class="col-6 form-group">
+                    <button type="button" class="btn-success btn-contact" (click)="filePicker.click()"
+                        *ngIf="this.path=='/signupTeacher'">
+                        Choose Your File
+                    </button>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary py-3 px-5" type="submit" (click)="signup()">Add</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<app-about-start></app-about-start>
+<div class="section-title text-center position-relative mb-4">
+    <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Courses</h6>
+    <table class="table">
+        <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>TIMMING</th>
+        <th>ACTION</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let m of courses">
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.description}}</td>
+            <td>{{m.timming}}</td>
+              <td>
+            <button class="btn btn-info" (click)="displayCourse(m.id)">Display</button>
+            <button class="btn btn-warning"(click)="editCourse(m.id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteCourse(m.id)">Delete</button>
+        </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+

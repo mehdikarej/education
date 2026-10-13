@@ -1,0 +1,73 @@
+<table class="table">
+    <thead>
+        <th>ClasseId</th>
+        <th>Name</th>
+        <th hidden>StudentId</th>
+        <th>StudentFName</th>
+        <th>StudentFName</th>
+        <th>TeacherFName</th>
+        <th>TeacherLName</th>
+        <th>Course</th>
+        <th>Timming</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let classe of classeTab">
+            <td>{{classe.classeId}}</td>
+            <td>{{classe.name}}</td>
+            <td hidden>
+                <div *ngFor="let std of classe.users">
+                    <span *ngIf="!isTeacher(std)">
+                    {{std.id}}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let std of classe.users">
+                    <span *ngIf="!isTeacher(std)">
+                        {{std.firstName}}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let std of classe.users">
+                    <span *ngIf="!isTeacher(std)">
+                        {{std.lastName}}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let std of classe.users">
+                    <span *ngIf="isTeacher(std)">
+                        {{std.firstName}}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let std of classe.users">
+                    <span *ngIf="isTeacher(std)">
+                        {{std.lastName}}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let cour of classe.courses">
+                    {{cour.description}}</div>
+            </td>
+            <td>
+                <div *ngFor="let cour of classe.courses">
+                    {{cour.timming}}
+                </div>
+            </td>
+            
+            <td>
+                <button class="btn btn-info"  (click)="displayClasse(classe.classeId)">Display</button>
+                <button class="btn btn-warning" (click)="editClasse(classe.classeId)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteClasse(classe.classeId)">Delete</button>
+            </td>
+            
+
+        </tr>
+    </tbody>
+
+</table>
